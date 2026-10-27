@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1660D9">
+<title>LOUPE 2026 Walk</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="title">LOUPE 2026</div>
+    <div class="seg" id="daySeg">
+      <button data-day="1">Day 1 · Thu</button>
+      <button data-day="2">Day 2 · Fri</button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-tab="route">Route</button>
+    <button data-tab="map">Map</button>
+    <button data-tab="contacts">Contacts <span id="ccount" class="pill"></span></button>
+  </nav>
+</header>
+
+<main>
+  <section id="tab-route" class="tab">
+    <div id="nextCard"></div>
+    <ol id="routeList" class="route"></ol>
+  </section>
+
+  <section id="tab-map" class="tab">
+    <div class="maptools">
+      <input id="search" type="search" placeholder="Find stand or company" autocomplete="off">
+      <button id="zoomOut" aria-label="Zoom out">−</button>
+      <button id="zoomIn" aria-label="Zoom in">+</button>
+    </div>
+    <div id="mapInfo" class="mapinfo">Tap a stand. Entrance and Registration are at the bottom.</div>
+    <div id="mapWrap" class="mapwrap"><svg id="map" xmlns="http://www.w3.org/2000/svg"></svg></div>
+    <div class="legend"><span><i class="lg lg-next"></i>Next</span><span><i class="lg lg-todo"></i>Planned</span><span><i class="lg lg-done"></i>Visited</span><span><i class="lg lg-brk"></i>Food / lounge</span></div>
+  </section>
+
+  <section id="tab-contacts" class="tab">
+    <div class="exportbar">
+      <button id="exportBtn" class="primary">Export all (zip)</button>
+      <div id="lastExport" class="muted"></div>
+    </div>
+    <div id="contactList"></div>
+  </section>
+</main>
+
+<button id="fab" class="fab" aria-label="Add walk-up contact">+ Contact</button>
+
+<div id="sheet" class="sheet hidden" role="dialog" aria-modal="true">
+  <div class="sheet-body" id="sheetBody"></div>
+</div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
